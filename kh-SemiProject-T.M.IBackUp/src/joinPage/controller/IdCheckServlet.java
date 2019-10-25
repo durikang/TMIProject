@@ -7,10 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import joinPage.model.service.JoinService;
+
 /**
  * Servlet implementation class IdCheckServlet
  */
-@WebServlet("/idCheck.jo")
+@WebServlet("/idCheck.me")
 public class IdCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -26,8 +28,10 @@ public class IdCheckServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String userId = request.getParameter("userId");
+		
+		int result = new JoinService().idCheck(userId);
+	
 	}
 
 	/**

@@ -3,78 +3,122 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta name="description" content="Bootstrap 3 Website Template" />
 
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-	crossorigin="anonymous">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<script src="//code.jquery.com/jquery.min.js"></script>
 
-<style>
-a {
-	font-size: 1.5em;
-}
-.fixed-top{
-	float:none;
-}
+<title>Creative - Start Bootstrap Theme</title>
 
-</style>
-<title>Insert title here</title>
+<!-- Font Awesome Icons -->
+<link href="<%=request.getContextPath() %>/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
+
+<!-- Google Fonts -->
+<link
+	href="<%=request.getContextPath() %>/resources/https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700"
+	rel="stylesheet">
+<link
+	href='<%=request.getContextPath() %>/resources/https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic'
+	rel='stylesheet' type='text/css'>
+
+<!-- Plugin CSS -->
+<link href="<%=request.getContextPath() %>/resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+<!-- Theme CSS - Includes Bootstrap -->
+<link href="<%=request.getContextPath() %>/resources/css/creative.min.css" rel="stylesheet">
+<link href="<%=request.getContextPath() %>/resources/css/MainCss.css" rel="stylesheet">
+
 </head>
-<body>
-	<!-- 메뉴바 시작-->
-	<div>
-	<header class="navbar">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-			<a class="navbar-brand" href="<%=request.getContextPath()%>"><strong>Navbar</strong></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
+
+<body id="page-top">
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3"
+		id="mainNav">
+		<div class="container">
+			<a class="navbar-brand js-scroll-trigger" href="#page-top"><img
+				src="<%=request.getContextPath() %>/resources/img/logo.png" width="45%"></a>
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false"
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a class="nav-link" href=<%=request.getContextPath()%>>Home
-							<span class="sr-only">(current)</span>
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="list.mo">goMovie</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Pricing</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Opinions</a>
-					</li>
-				</ul>
-				<ul class="navbar-nav nav-flex-icons">
-					<li class="nav-item"><a class="nav-link"><i
-							class="fab fa-facebook-f"></i></a></li>
-					<li class="nav-item"><a class="nav-link"><i
-							class="fab fa-twitter"></i></a></li>
-					<li class="nav-item"><a class="nav-link"><i
-							class="fab fa-instagram"></i></a></li>
+
+			<script>
+				$(function() {
+					$(".zeta-menu li").hover(function() {
+						$('ul:first', this).show();
+					}, function() {
+						$('ul:first', this).hide();
+					});
+					$(".zeta-menu>li:has(ul)>a").each(function() {
+						$(this).html($(this).html());
+					});
+					$(".zeta-menu ul li:has(ul)").find("a:first").append(
+							"<p style='float:right;margin:-3px'>&#9656;</p>");
+				});
+			</script>
+
+			<div class='zeta-menu-bar'>
+				<ul class="zeta-menu">
+					<li><a href="#"><h5>티켓 예매</h5></a>
+						<ul>
+							<li><a href="#">빠른 예매</a>
+								<ul>
+									<li><a href="#">영화 검색 예매</a></li>
+									<li><a href="#">날짜별 검색 예매</a></li>
+									<li><a href="#">극장 검색 예매</a></li>
+								</ul></li>
+							<li><a href="#">상영 시간표</a></li>
+						</ul></li>
+					<li><a href="#"><h5>영화</h5></a>
+						<ul>
+							<li><a href="#">실시간 영화 차트</a></li>
+							<li><a href="#">현재 상영 정보</a>
+								<ul>
+									<li><a href="#">영화 정보</a></li>
+									<li><a href="#">후기</a></li>
+								</ul></li>
+							<li><a href="#">상영 예정작</a></li>
+							<li><a href="#">보고싶어★(보류)</a></li>
+						</ul></li>
+					<li><a href="#"><h5>영화관</h5></a>
+						<ul>
+							<li><a href="#">우리 동네 영화관</a></li>
+							<li><a href="#">★특별관★</a>
+								<ul>
+									<li><a href="#">4DX</a></li>
+									<!--<li><a href="#">imax</a></li> // 이 위치에 저장이 안되어 주석 처리!ㅋㅋ-->
+									<li><a href="#">ScreenX</a></li>
+									<li><a href="#">TempurCinema</a></li>
+									<li><a href="#">IMAX</a></li>
+									<li><a href="#">CharLotte</a></li>
+								</ul></li>
+						</ul></li>
+					<li><a href="#"><h5>스넥 스토어</h5></a>
+						<ul>
+							<li><a href="#">CGV</a></li>
+							<li><a href="#">롯데시네마</a></li>
+							<li><a href="#">메가박스</a></li>
+						</ul></li>
+					<li><a href="#"><h5>고객 센터</h5></a>
+						<ul>
+							<li><a href="#">Q&A</a></li>
+							<li><a href="#">자주찾는질문</a></li>
+							<li><a href="#">분실물 문의</a></li>
+							<li><a href="#">공지사항</a></li>
+						</ul></li>
+					<li><a href="#"><h5>마이페이지</h5></a></li>
 				</ul>
 			</div>
-		</nav>
-	</header>
-	</div>
+
+		</div>
+	</nav>
 	<!-- 메뉴바 끝  -->
-	<!-- 부트스트랩  -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-		crossorigin="anonymous"></script>
-	<!-- 부투스트랩 end -->
-
-
-
 </body>
 </html>

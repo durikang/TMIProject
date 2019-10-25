@@ -7,11 +7,12 @@ public class Movie {
 	private String poster;//영화포스터
 	private String preview;//예고편(동영상)
 	private String plot;//줄거리
-	private int Category;//예정작,방영작  0 ->예정작, 1 ->방영작
+	private int Category;//예정작,방영작 0 ->예정작, 1 ->방영작
 	
 
 	public Movie() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
 
@@ -22,7 +23,7 @@ public class Movie {
 		this.poster = poster;
 		this.preview = preview;
 		this.plot = plot;
-		this.Category = category;
+		Category = category;
 	}
 
 

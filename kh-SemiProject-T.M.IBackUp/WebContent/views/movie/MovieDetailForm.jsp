@@ -7,19 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<!-- menu  -->
-	<%@include file ="../common/menubar.jsp" %>
 	
-	<!-- menu End  -->
-	
-	<!-- Content  -->
-	
-
-	<!-- Content End -->
-	
-	
-	
-	<!-- footbar  -->
-<%@include file ="../common/footer.jsp" %>
 </body>
 </html>
