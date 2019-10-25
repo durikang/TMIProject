@@ -33,7 +33,7 @@ public class selledListServlet extends HttpServlet {
 		
 		MyPage m = new MyPage();
 		
-		MyPage selledList = new MyPageService().selledList(m);
+	/*	MyPage selledList = new MyPageService().selledList(m);*/
 		
 	}
 

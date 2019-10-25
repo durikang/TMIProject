@@ -33,7 +33,7 @@ public class MemberGradeServlet extends HttpServlet {
 		
 		MyPage m = new MyPage();
 		
-		MyPage MemberGrade = new MyPageService().MemberGrade(m);
+/*		MyPage MemberGrade = new MyPageService().MemberGrade(m);*/
 	}
 
 	/**

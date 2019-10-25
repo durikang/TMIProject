@@ -33,7 +33,7 @@ public class DropBasketServlet extends HttpServlet {
 		
 		MyPage m = new MyPage();
 		
-		MyPage DropBasket = new MyPageService().DropBasket(m);
+	/*	MyPage DropBasket = new MyPageService().DropBasket(m);*/
 	}
 
 	/**

@@ -36,7 +36,7 @@ public class UpdateServlet extends HttpServlet {
 		
 		MyPage m = new MyPage();
 		
-		MyPage updateMember = new MyPageService().updateMember(m);
+	/*	MyPage updateMember = new MyPageService().updateMember(m);*/
 	}
 
 	/**
