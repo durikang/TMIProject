@@ -1,4 +1,4 @@
-package snack.controller;
+package movie.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,22 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import basket.model.service.BasketService;
-import basket.model.vo.Basket;
-import snack.model.service.SnackService;
-import snack.model.vo.Snack;
+import movie.model.service.MovieService;
+import movie.model.vo.Movie;
 
 /**
- * Servlet implementation class InsertBasketServlet
+ * Servlet implementation class MovieNoreleaseDetail
  */
-@WebServlet("/InsertBasket.sn")
-public class InsertBasketServlet extends HttpServlet {
+@WebServlet("/Norelease.mv")
+public class MovieNoreleaseDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertBasketServlet() {
+    public MovieNoreleaseDetail() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,13 +31,9 @@ public class InsertBasketServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int skCode = Integer.parseInt(request.getParameter("skCode"));
-		int bCode =  Integer.parseInt(request.getParameter("bCode"));
+		int mCode=Integer.parseInt(request.getParameter("mCode"));
 		
-		Basket b = new Basket();
-		
-		int result = new BasketService().InsertBasket(bCode,skCode);
-		
+		Movie m = new MovieService().selectMovie(mCode);
 		
 		
 		

@@ -1,15 +1,20 @@
 package basket.model.service;
 
-import java.util.ArrayList;
+import static common.JDBCTemplate.getConnection;
 
-import snack.model.vo.Snack;
+import java.sql.Connection;
+
+import basket.model.dao.BasketDao;
 
 public class BasketService {
 
-	public ArrayList<Snack> InsertBasket(int skCode) {
-		// TODO Auto-generated method stub
-		//ㅅㅅ
-		return null;
+	// 스낵 장바구니
+	public int InsertBasket(int bCode, int skCode) {
+		Connection conn = getConnection();
+		int result = new BasketDao().InsertBasket(conn,bCode,skCode);
+		return 0;
 	}
+
+
 
 }

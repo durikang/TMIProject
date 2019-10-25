@@ -31,7 +31,9 @@ public class MovieNoreleaseList extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Movie> nList =new MovieService().selectList(2);
+		ArrayList<Movie> nList =new MovieService().selectList(0);
+		
+		
 	}
 
 	/**
