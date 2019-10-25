@@ -6,27 +6,23 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	.menu{
-		float:none;
-	}
+.menu{
+	float:none;
+}
 </style>
 </head>
-<body id="page-top">
-<br>
+<body>
 
  		<!-- header -->
  		<div class="menu">
  			<%@include file="menubar.jsp" %>
 		</div>
  		<!-- header end -->
+	<br>
+	<br>
+	<br>
+		<h1>Hello world?</h1>
 
-  	
-	
-		
-		<!-- section -->
-		<section class="container">
-			<h1>Hello world?</h1>
-		</section>
 
 		<!-- section end -->
 

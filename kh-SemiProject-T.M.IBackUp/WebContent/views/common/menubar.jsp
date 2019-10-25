@@ -16,17 +16,19 @@
 a {
 	font-size: 1.5em;
 }
-
+.fixed-top{
+	float:none;
+}
 
 </style>
 <title>Insert title here</title>
 </head>
 <body>
 	<!-- 메뉴바 시작-->
-
+	<div>
 	<header class="navbar">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-			<a class="navbar-brand" href="#"><strong>Navbar</strong></a>
+			<a class="navbar-brand" href="<%=request.getContextPath()%>"><strong>Navbar</strong></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -35,10 +37,10 @@ a {
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a class="nav-link" href="#">Home
+					<li class="nav-item active"><a class="nav-link" href=<%=request.getContextPath()%>>Home
 							<span class="sr-only">(current)</span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Features</a>
+					<li class="nav-item"><a class="nav-link" href="list.mo">goMovie</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#">Pricing</a>
 					</li>
@@ -56,7 +58,7 @@ a {
 			</div>
 		</nav>
 	</header>
-
+	</div>
 	<!-- 메뉴바 끝  -->
 	<!-- 부트스트랩  -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
