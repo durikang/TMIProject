@@ -33,7 +33,7 @@ public class BasketListSetvlet extends HttpServlet {
 		
 		MyPage m = new MyPage();
 		
-		MyPage BasketList = new MyPageService().BasketList(m);
+		/*MyPage BasketList = new MyPageService().BasketList(m);*/
 	}
 
 	/**

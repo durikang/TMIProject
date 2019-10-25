@@ -1,16 +1,11 @@
 package snack.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import snack.model.service.SnackService;
-import snack.model.vo.Snack;
 
 /**
  * Servlet implementation class SnackListServlet
@@ -31,18 +26,8 @@ public class SnackListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*private int skCode;
-		private String skName;
-		private String skPrice;
-		private String skcontent;
-		private String picture;*/
-		
-		ArrayList<Snack> snList =new SnackService().selectList();
-		
-		
-		
-		
-		
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

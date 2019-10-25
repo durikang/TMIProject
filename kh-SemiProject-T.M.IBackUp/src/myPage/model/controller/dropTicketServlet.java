@@ -33,7 +33,7 @@ public class dropTicketServlet extends HttpServlet {
 		
 		MyPage m = new MyPage();
 		
-		MyPage dropTicket = new MyPageService().dropTicket(m);
+		/*MyPage dropTicket = new MyPageService().dropTicket(m);*/
 	}
 
 	/**
