@@ -39,7 +39,7 @@
 					<div class="content-wrap">
 
 						<img id="mSelect"
-							src="../startbootstrap-creative-gh-pages/img/h3_movie_selection.gif"
+							src="../../resources/img/h3_movie_selection.gif"
 							alt="">
 						<div class="container clearfix">
 							<div class="col_two_third portfolio-single-image nobottommargin">
@@ -208,15 +208,15 @@
 	</footer>
 
 	<!-- Bootstrap core JavaScript -->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=request.getContextPath() %>/resources/vendor/jquery/jquery.min.js"></script>
+	<script src="<%=request.getContextPath() %>/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 	<!-- Plugin JavaScript -->
-	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-	<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+	<script src="<%=request.getContextPath() %>/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="<%=request.getContextPath() %>/resources/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
 	<!-- Custom scripts for this template -->
-	<script src="js/creative.min.js"></script>
+	<script src="<%=request.getContextPath() %>/js/creative.min.js"></script>
 
 </body>
 </html>

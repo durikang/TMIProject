@@ -14,23 +14,23 @@
 <title>Creative - Start Bootstrap Theme</title>
 
 <!-- Font Awesome Icons -->
-<link href="../../resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+<link href="<%=request.getContextPath() %>/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
 	type="text/css">
 
 <!-- Google Fonts -->
 <link
-	href="../../resources/https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700"
+	href="<%=request.getContextPath() %>/resources/https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700"
 	rel="stylesheet">
 <link
-	href='../../resources/https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic'
+	href='<%=request.getContextPath() %>/resources/https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic'
 	rel='stylesheet' type='text/css'>
 
 <!-- Plugin CSS -->
-<link href="../../resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+<link href="<%=request.getContextPath() %>/resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
 <!-- Theme CSS - Includes Bootstrap -->
-<link href="../../resources/css/creative.min.css" rel="stylesheet">
-<link href="../../resources/css/MainCss.css" rel="stylesheet">
+<link href="<%=request.getContextPath() %>/resources/css/creative.min.css" rel="stylesheet">
+<link href="<%=request.getContextPath() %>/resources/css/MainCss.css" rel="stylesheet">
 
 </head>
 
@@ -41,7 +41,7 @@
 		id="mainNav">
 		<div class="container">
 			<a class="navbar-brand js-scroll-trigger" href="#page-top"><img
-				src="../../resources/img/logo.png" width="45%"></a>
+				src="<%=request.getContextPath() %>/resources/img/logo.png" width="45%"></a>
 			<button class="navbar-toggler navbar-toggler-right" type="button"
 				data-toggle="collapse" data-target="#navbarResponsive"
 				aria-controls="navbarResponsive" aria-expanded="false"
