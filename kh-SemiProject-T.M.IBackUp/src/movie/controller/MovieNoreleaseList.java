@@ -1,4 +1,4 @@
-package snack.controller;
+package movie.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,21 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import basket.model.service.BasketService;
-import snack.model.service.SnackService;
-import snack.model.vo.Snack;
+import movie.model.service.MovieService;
+import movie.model.vo.Movie;
 
 /**
- * Servlet implementation class InsertBasketServlet
+ * Servlet implementation class MovieNoreleaseList
  */
-@WebServlet("/InsertBasket.sn")
-public class InsertBasketServlet extends HttpServlet {
+@WebServlet("/noRelease.mv")
+public class MovieNoreleaseList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertBasketServlet() {
+    public MovieNoreleaseList() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,11 +31,7 @@ public class InsertBasketServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int skCode = Integer.parseInt(request.getParameter("skCode"));
-		ArrayList<Snack> snDlist = new BasketService().InsertBasket(skCode);
-		
-		
-		
+		ArrayList<Movie> nList =new MovieService().selectList(2);
 	}
 
 	/**
