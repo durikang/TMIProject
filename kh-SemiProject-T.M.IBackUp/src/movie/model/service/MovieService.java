@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import movie.model.dao.MovieDao;
 import movie.model.vo.Movie;
+import snack.model.vo.Snack;
 
 public class MovieService {
 
@@ -17,7 +18,7 @@ public class MovieService {
 		if(n==0) {
 			list = new MovieDao().selectList(con);
 		}else {
-			list=new MovieDao().selectListChart(con);
+			list = new MovieDao().selectListChart(con);
 		}
 		close(con);
 		return list;
@@ -33,4 +34,5 @@ public class MovieService {
 		return b;
 	}
 
+	
 }

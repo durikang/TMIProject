@@ -17,12 +17,12 @@ public class SnackDao {
 
 	
 		// 1. 스낵스토어 조회용 dao
-		public ArrayList<Snack> selectList() {
+		public ArrayList<Snack> selectList(Connection conn) {
 			return null;
 		}
 
 		// 2. 스낵스토어 상세보기 dao
-		public Review selectNotice() {
+		public ArrayList<Snack> selectDetail(Connection conn, int skCode) {
 			return null;
 		}
 
@@ -30,7 +30,9 @@ public class SnackDao {
 		public int updateNotice() {
 			return 0;
 		}
+
 	
+		
 	
 	
 	
