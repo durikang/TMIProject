@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class NoticeUpdateServlet
  */
-@WebServlet("/update.re")
+@WebServlet("/update.qe")
 public class QuestionUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
