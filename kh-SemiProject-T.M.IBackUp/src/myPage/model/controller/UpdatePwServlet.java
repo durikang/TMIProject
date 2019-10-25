@@ -1,23 +1,27 @@
-package joinPage.controller;
+package myPage.model.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import myPage.model.service.MyPageService;
+import myPage.model.vo.MyPage;
+
 /**
- * Servlet implementation class SearchServlet
+ * Servlet implementation class UpdatePwServlet
  */
-@WebServlet("/search.me")
-public class SearchServlet extends HttpServlet {
+@WebServlet("/updatePw.me")
+public class UpdatePwServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchServlet() {
+    public UpdatePwServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,8 +30,8 @@ public class SearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		MyPage updateMem = new MyPageService().updatePwd();
 	}
 
 	/**
