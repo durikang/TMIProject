@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%
+		String cssPath =request.getContextPath()+"/resources/css"; //css 경로
+		String imgPath = request.getContextPath()+"/resources/img";
+		System.out.println(imgPath);
+	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,39 +18,34 @@
 
 <title>Creative - Start Bootstrap Theme</title>
 
-<!-- Font Awesome Icons -->
-<link href="<%=request.getContextPath() %>/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
-	type="text/css">
 
-<!-- Google Fonts -->
-<link
-	href="<%=request.getContextPath() %>/resources/https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700"
-	rel="stylesheet">
-<link
-	href='<%=request.getContextPath() %>/resources/https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic'
-	rel='stylesheet' type='text/css'>
+  <!-- Font Awesome Icons -->
+  <link href="<%=request.getContextPath() %>/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+ <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
 <!-- Plugin CSS -->
-<link href="<%=request.getContextPath() %>/resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="<%=request.getContextPath() %>/resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
-<!-- Theme CSS - Includes Bootstrap -->
+  <!-- Theme CSS - Includes Bootstrap -->
 <link href="<%=request.getContextPath() %>/resources/css/creative.min.css" rel="stylesheet">
 <link href="<%=request.getContextPath() %>/resources/css/MainCss.css" rel="stylesheet">
-
+ 
 </head>
 
-<body id="page-top">
-
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
 	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3"
-		id="mainNav">
-		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="#page-top"><img
-				src="<%=request.getContextPath() %>/resources/img/logo.png" width="45%"></a>
-			<button class="navbar-toggler navbar-toggler-right" type="button"
-				data-toggle="collapse" data-target="#navbarResponsive"
-				aria-controls="navbarResponsive" aria-expanded="false"
-				aria-label="Toggle navigation">
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top"id="mainNav">
+		
+			<a class="navbar-brand js-scroll-trigger" href="<%=request.getContextPath()%>"><img src="<%=request.getContextPath() %>/resources/img/logo.png" width="45%"></a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
@@ -78,10 +78,10 @@
 						</ul></li>
 					<li><a href="#"><h5>영화</h5></a>
 						<ul>
-							<li><a href="#">실시간 영화 차트</a></li>
+							<li><a href="<%=request.getContextPath() %>/clist.mo">실시간 영화 차트</a></li>
 							<li><a href="#">현재 상영 정보</a>
 								<ul>
-									<li><a href="#">영화 정보</a></li>
+									<li><a href="list.mo">영화 정보</a></li>
 									<li><a href="#">후기</a></li>
 								</ul></li>
 							<li><a href="#">상영 예정작</a></li>
@@ -116,8 +116,6 @@
 					<li><a href="#"><h5>마이페이지</h5></a></li>
 				</ul>
 			</div>
-
-		</div>
 	</nav>
 	<!-- 메뉴바 끝  -->
 </body>

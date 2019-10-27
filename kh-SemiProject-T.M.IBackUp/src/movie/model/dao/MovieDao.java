@@ -22,7 +22,7 @@ public class MovieDao {
 		String path=MovieDao.class.getResource("/sql/movie/movie-query.properties").getPath();
 		
 		try {
-			prop.load(new FileReader(prop.getProperty(path)));
+			prop.load(new FileReader(path));
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

@@ -29,10 +29,10 @@ public class MovieListViewServlet extends HttpServlet {
 		
 		ArrayList<Movie> mlist = new ArrayList<Movie>();
 		
-		mlist.add(new Movie(1,"조커","c://","c://","줄거리",1));
+//		mlist.add(new Movie(1,"조커","c://","c://","줄거리",1));
 		
 		
-		request.setAttribute("mlist", mlist);
+//		request.setAttribute("mlist", mlist);
 		request.getRequestDispatcher("views/movie/MovieListViewForm.jsp").forward(request, response);
 	
 	}

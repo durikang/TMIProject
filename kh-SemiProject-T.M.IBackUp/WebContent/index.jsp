@@ -8,6 +8,6 @@
 </head>
 <body>
 	<%@include file="views/common/MainHome.jsp" %>
-	<!-- ㅁㄴㅇㄹ -->
+	
 </body>
 </html>
