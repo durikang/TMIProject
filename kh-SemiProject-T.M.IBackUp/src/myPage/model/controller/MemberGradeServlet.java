@@ -32,8 +32,8 @@ public class MemberGradeServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		MyPage m = new MyPage();
-		
-/*		MyPage MemberGrade = new MyPageService().MemberGrade(m);*/
+	/*	
+		MyPage MemberGrade = new MyPageService().MemberGrade(m);*/
 	}
 
 	/**
