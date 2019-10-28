@@ -1,122 +1,294 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	<%
-		String cssPath =request.getContextPath()+"/resources/css"; //css 경로
-		String imgPath = request.getContextPath()+"/resources/img";
-		System.out.println(imgPath);
-	%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Bootstrap 3 Website Template" />
 
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<script src="//code.jquery.com/jquery.min.js"></script>
+        
+        <style>
+            
+#primary-menu {
+    float: right;
+    height: 100px;
+   
+}
 
-<title>Creative - Start Bootstrap Theme</title>
+#header.full-header #primary-menu > ul {
+    float: left;
+    padding-right: 15px;
+    margin-right: 15px;
+    border-right: none;
+}
 
+#header.transparent-header.full-header #primary-menu > ul { border-right-color:none; }
 
-  <!-- Font Awesome Icons -->
-  <link href="<%=request.getContextPath() %>/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+#primary-menu-trigger,
+#page-submenu-trigger {
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    -webkit-transition: opacity .3s ease;
+    -o-transition: opacity .3s ease;
+    transition: opacity .3s ease;
+}
 
- <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+#primary-menu ul {
+    list-style: none;
+    height: 100px;
+    margin: 0;
+}
 
-<!-- Plugin CSS -->
-  <link href="<%=request.getContextPath() %>/resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+#primary-menu > ul { float: left; }
 
-  <!-- Theme CSS - Includes Bootstrap -->
-<link href="<%=request.getContextPath() %>/resources/css/creative.min.css" rel="stylesheet">
-<link href="<%=request.getContextPath() %>/resources/css/MainCss.css" rel="stylesheet">
- 
+#primary-menu ul li {
+    position: relative;
+    float: left;
+    margin-left: 2px;
+}
+
+#primary-menu ul li.mega-menu { position: inherit; }
+
+#primary-menu ul li:first-child { margin-left: 0; }
+
+#primary-menu ul li a {
+    display: block;
+    height: 100px;
+    line-height: 100px;
+    padding: 0 15px;
+    color: #666;
+	font-weight: none;
+	text-transform: none;
+    font-size: 17px;
+    letter-spacing: 0px;
+    -webkit-transition: height .4s ease, line-height .4s ease, margin .4s ease, padding .4s ease;
+    -o-transition: height .4s ease, line-height .4s ease, margin .4s ease, padding .4s ease;
+    transition: height .4s ease, line-height .4s ease, margin .4s ease, padding .4s ease;
+	-webkit-transition: all 0.3s ease-out; 
+	-moz-transition: all 0.3s ease-out; 
+	-o-transition: all 0.3s ease-out;
+}
+
+#primary-menu ul li span { display: none; }
+
+#primary-menu ul li i {
+    position: relative;
+    font-size: 14px !important;
+    top: 1px;
+    line-height: 99px;
+    width: 14px;
+    text-align: center;
+    margin-right: 6px;
+    -webkit-transition: line-height .4s ease;
+    -o-transition: line-height .4s ease;
+    transition: line-height .4s ease;
+}
+
+#primary-menu > ul > li:hover a,
+#primary-menu > ul > li.current a { 
+	color: #EAAF22; 
+	-webkit-transition: all 0.3s ease-out; 
+	-moz-transition: all 0.3s ease-out; 
+	-o-transition: all 0.3s ease-out;
+}
+
+#primary-menu > ul > li.sub-menu > a > div { }
+
+#primary-menu li:hover > ul { display: block; }
+
+#primary-menu ul ul,
+#primary-menu ul li .mega-menu-content {
+    display: none;
+    position: absolute;
+    width: 220px;
+    background-color: #EEE;
+    box-shadow: 0px 6px 22px 5px rgba(0, 0, 0, 0.05);
+    border: none;
+    border-top: 10px solid #DDD;
+    height: auto;
+    z-index: 99;
+    top: 100px;
+    left: 0;
+    margin: 0;
+}
+
+#primary-menu ul ul ul {
+    top: -2px !important;
+    left: 218px;
+}
+
+#primary-menu ul ul.menu-pos-invert,
+#primary-menu ul li .mega-menu-content.menu-pos-invert {
+    left: auto;
+    right: 0;
+}
+
+#primary-menu ul ul ul.menu-pos-invert { right: 218px; }
+
+#primary-menu ul ul li {
+    float: none;
+    margin: 0;
+}
+
+#primary-menu ul ul li:first-child { border-top: 0; }
+
+#primary-menu ul ul a {
+    font-size: 13px;
+    font-weight: normal;
+    height: 42px !important;
+    line-height: 42px !important;
+    color: #444 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    border: 0 !important;
+    letter-spacing: 0;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+#primary-menu ul ul li:hover > a {
+    background-color: #F9F9F9;
+    padding-left: 18px;
+    color: #EAAF22 !important;
+}
+
+#primary-menu ul ul i { line-height: inherit; }
+
+#primary-menu ul ul > li.sub-menu > a,
+#primary-menu ul ul > li.sub-menu:hover > a {
+    background-image: url("../images/icons/submenu.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+#logo {
+    position: relative;
+    float: left;
+    font-size: 36px;
+    line-height: 100%;
+    margin-right: 40px;
+}
+
+#header.full-header #logo {
+    padding-right: 30px;
+    margin-right: 30px;
+    border-right:none;
+}
+
+#header.transparent-header.full-header #logo { border-right-color:none; }
+
+#logo a {
+    display: block;
+    color: #000;
+}
+
+#logo img {
+    display: block;
+    max-width: 100%;
+}
+
+#logo a.standard-logo { display: block; }
+#logo a.retina-logo { display: none; }
+.footer-logo.standard-logo { display: block; }
+.footer-logo.retina-logo { display: none; }
+.ad-logo { max-width: 200px }
+.ad-image { max-width: 700px }
+        </style>
 </head>
-
 <body>
-<br>
-<br>
-<br>
-<br>
-<br>
-	<!-- Navigation -->
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top"id="mainNav">
-		
-			<a class="navbar-brand js-scroll-trigger" href="<%=request.getContextPath()%>"><img src="<%=request.getContextPath() %>/resources/img/logo.png" width="45%"></a>
-			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+<header id="header">
+                
+            <div id="header-wrap">
 
-			<script>
-				$(function() {
-					$(".zeta-menu li").hover(function() {
-						$('ul:first', this).show();
-					}, function() {
-						$('ul:first', this).hide();
-					});
-					$(".zeta-menu>li:has(ul)>a").each(function() {
-						$(this).html($(this).html());
-					});
-					$(".zeta-menu ul li:has(ul)").find("a:first").append(
-							"<p style='float:right;margin:-3px'>&#9656;</p>");
-				});
-			</script>
+                <div class="container clearfix">
+                        
+                    <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
 
-			<div class='zeta-menu-bar'>
-				<ul class="zeta-menu">
-					<li><a href="#"><h5>티켓 예매</h5></a>
-						<ul>
-							<li><a href="#">빠른 예매</a>
-								<ul>
-									<li><a href="#">영화 검색 예매</a></li>
-									<li><a href="#">날짜별 검색 예매</a></li>
-									<li><a href="#">극장 검색 예매</a></li>
-								</ul></li>
-							<li><a href="#">상영 시간표</a></li>
-						</ul></li>
-					<li><a href="#"><h5>영화</h5></a>
-						<ul>
-							<li><a href="<%=request.getContextPath() %>/clist.mo">실시간 영화 차트</a></li>
-							<li><a href="#">현재 상영 정보</a>
-								<ul>
-									<li><a href="list.mo">영화 정보</a></li>
-									<li><a href="#">후기</a></li>
-								</ul></li>
-							<li><a href="#">상영 예정작</a></li>
-							<li><a href="#">보고싶어★(보류)</a></li>
-						</ul></li>
-					<li><a href="#"><h5>영화관</h5></a>
-						<ul>
-							<li><a href="#">우리 동네 영화관</a></li>
-							<li><a href="#">★특별관★</a>
-								<ul>
-									<li><a href="#">4DX</a></li>
-									<!--<li><a href="#">imax</a></li> // 이 위치에 저장이 안되어 주석 처리!ㅋㅋ-->
-									<li><a href="#">ScreenX</a></li>
-									<li><a href="#">TempurCinema</a></li>
-									<li><a href="#">IMAX</a></li>
-									<li><a href="#">CharLotte</a></li>
-								</ul></li>
-						</ul></li>
-					<li><a href="#"><h5>스넥 스토어</h5></a>
-						<ul>
-							<li><a href="#">CGV</a></li>
-							<li><a href="#">롯데시네마</a></li>
-							<li><a href="#">메가박스</a></li>
-						</ul></li>
-					<li><a href="#"><h5>고객 센터</h5></a>
-						<ul>
-							<li><a href="#">Q&A</a></li>
-							<li><a href="#">자주찾는질문</a></li>
-							<li><a href="#">분실물 문의</a></li>
-							<li><a href="#">공지사항</a></li>
-						</ul></li>
-					<li><a href="#"><h5>마이페이지</h5></a></li>
-				</ul>
-			</div>
-	</nav>
-	<!-- 메뉴바 끝  -->
+                    <!-- Logo
+                    ============================================= -->
+                    <div id="logo">
+                        <a href="index.html" class="standard-logo" data-dark-logo="../../resources/images/logo/logo-dark.png"><img src="../../resources/images/logo1.png"width="30%" alt="Chocolat Logo"></a>
+                    </div><!-- #logo end -->
+
+                    <!-- Primary Navigation
+                    ============================================= -->
+                    <nav id="primary-menu">
+
+                        <ul class="">
+                            <li class="current"><a href="#"><div>티켓예매</div></a>
+                                <ul>
+                                    <li><a href="#"><div>빠른예매</div></a>
+                                        <ul>                                
+                                    		<li><a href="index.html"><div>영화검색예매</div></a></li>
+                                    		<li><a href="index-3.html"><div>날짜검색예매</div></a></li>
+                                    		<li><a href="index-5.html"><div>극장검색예매</div></a></li>
+                                         </ul>
+                                     </li>
+                                    <li><a href="#"><div>상영시간표</div></a>
+                                        <ul>
+                                            <li><a href="index.html"><div>CGV</div></a></li>
+                                            <li><a href="index.html"><div>메가박스</div></a></li>
+                                            <li><a href="index.html"><div>롯데시네마</div></a></li>
+                                        </ul>
+                                    </li>                                                                      
+                                </ul>
+                            </li>
+                            <li><a href="#"><div>영화</div></a>
+                                <ul>
+                                    <li><a href="#"><div>3사 실시간 영화차트</div></a></li>
+                                    <li><a href="#"><div>현재 상영 영화정보</div></a>
+                                    <li><a href="#"><div>상영예정작</div></a></li>     
+                                    <li><a href=""><div>후기</div></a></li>                              
+                                    <li><a href="#"><div>보고싶어★(보류)</div></a></li>
+                                </ul>
+                            </li>
+                            <!--<li><a href="#"><div>영화관(보류)</div></a>
+                                <ul>
+                                    <li><a href="#"><div>우리동네영화관</div></a></li>
+                                    <li><a href="#"><div>특별관</div></a>
+                                        <ul>
+                                            <li><a href=""><div>4DX</div></a></li>
+                                            <li><a href=""><div>IMAX</div></a></li>
+                                            <li><a href=""><div>ScrennX</div></a></li>
+                                            <li><a href=""><div>TempurCinema</div></a></li>
+                                            <li><a href=""><div>CharLotte</div></a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>-->
+                            <li><a href="#"><div>스낵스토어</div></a>
+                                <ul>
+                                	<li><a href="events-list.html"><div>CGV</div></a></li>
+                                	<li><a href="events-list-parallax.html"><div>메가박스</div></a></li>
+                                    <li><a href="events-single.html"><div>롯데시네마</div></a></li>
+                                </ul>                            
+                            </li>                            
+                            <li><a href="#"><div>고객센터</div></a>
+                                <ul>
+                                	<li><a href="contact-1.html"><div>Q&A</div></a></li>
+                                    <li><a href="contact-2.html"><div>자주찾는질문</div></a></li>
+                                    <li><a href="contact-2.html"><div>공지사항</div></a></li>
+                                </ul>                            
+                            </li>
+                            <li><a href="#"><div>마이페이지</div></a></li>
+                        </ul>
+                    </nav><!-- #primary-menu end -->
+                </div>
+
+          </div>
+         
+        </header><!-- #header end -->
+
 </body>
 </html>
