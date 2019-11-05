@@ -15,11 +15,11 @@ public class JDBCTemplate {
 		Connection conn = null;
 		Properties prop = new Properties();
 		String fileName = JDBCTemplate.class.getResource("/sql/driver.properties").getPath();
-		System.out.println(fileName);
+//		System.out.println(fileName);
 		try {
-			System.out.println("트라이 확인");
+//			System.out.println("트라이 확인");
 			prop.load(new FileReader(fileName));
-			System.out.println("트라이 엔드");
+//			System.out.println("트라이 엔드");
 			String driver = prop.getProperty("driver");
 			String url = prop.getProperty("url");
 			String user = prop.getProperty("user");

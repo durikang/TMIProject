@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import attachment.model.vo.Attachment;
+import movie.model.service.MovieService;
 import movie.model.vo.Movie;
 
 
@@ -24,17 +26,21 @@ public class MovieListViewServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		/*ArrayList<Movie> mlist = new MovieService().selectList(0);*/
-		//기능 구현 이후 주석 품
+		MovieService bService = new MovieService();
 		
-		ArrayList<Movie> mlist = new ArrayList<Movie>();
+		ArrayList<Movie> mlist = bService.selectList(1);
 		
-//		mlist.add(new Movie(1,"조커","c://","c://","줄거리",1));
+		ArrayList<Attachment> mplist= bService.selectList(2);
 		
-		
-//		request.setAttribute("mlist", mlist);
-		request.getRequestDispatcher("views/movie/MovieListViewForm.jsp").forward(request, response);
-	
+		if(mlist !=null && mplist !=null) {
+			request.setAttribute("movieList", mlist);
+			request.setAttribute("imgFileList", mplist);
+			request.getRequestDispatcher("views/movie/MovieListViewForm.jsp").forward(request, response);
+					
+		}else {
+			request.setAttribute("msg", "사진 게시판 조회 실패!!");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -1,86 +1,132 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.*, movie.model.vo.*, attachment.model.vo.*"%>
+	<%
+		ArrayList<Movie> mlist = (ArrayList<Movie>)request.getAttribute("movieList");
+		ArrayList<Attachment> mplist = (ArrayList<Attachment>)request.getAttribute("imgFileList"); //2019-11-01 23:35 작업끝
+		
+		String[] actor = null;
+	%>
+	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+    
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/style.css" type="text/css" />
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 <style>
 .table .text {
-  position: relative;
+	position: relative;
 }
 
 .table .text span {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  position: absolute;
-  width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	position: absolute;
+	width: 100%;
 }
 
 .text:before {
-  content: '';
-  display: inline-block;
+	content: '';
+	display: inline-block;
 }
 </style>
 </head>
 <body>
 	<!-- menu  -->
-	<%@include file ="../common/menubar.jsp" %>
-	<br><br>
+	<%@include file="../common/menubar.jsp"%>
+	<br>
+	<br>
 	<!-- menu End  -->
-      <div class="container">
-        <h1 align="center">영화 List</h1>  
-        <hr>
-        <div class="container">
-          <div class="row">
-            <!-- movie -->
-            <div class="col-4 float-left">
-              <div class="card">
-                <img src="<%=imgPath %>/movie/TheTerminator2.png" alt="" class="card-img-top" id="city1" />
-                <div class="card-body">
-                <h5 class="card-title">터미네이터</h5>
-                <p class="card-text">
-                	<!-- table-area -->
-					<table class="table table-borderless table-responsive">
-					  <thead>
-					    <tr>
-					      <th scope="col">#</th>
-					      <th scope="col">감독</th>
-					      <th scope="col">배우</th>
-					      <th scope="col">평점</th>
-					    </tr>
-					  </thead>
-					  <tbody>
-					    <tr>
-					      <th scope="row">1</th>
-					      <td class="text"><span data-toggle="tooltip" data-placement="bottom" title="제임스 카메론">제임스 카메론</span></td>
-					      <td class="text"><span data-toggle="tooltip" data-placement="bottom" title="아놀드 슈왈제네거">아놀드 슈왈제네거</span></td>
-					      <td>0.00</td>
-					    </tr>
-					  </tbody>
-					</table>	
-					<!-- table-area-end  -->
-                </p>
-                <a href="#" class="btn btn-primary">자세히 보기</a>
-                </div>
-              </div>
-            </div>
-            <!-- movie end -->
-          </div>
-        </div>      
-      </div>
-      
-		<script>
-			$(function () {
-				$('[data-toggle="tooltip"]').tooltip()
-			})
-		</script>
-      
-      
+	<div class="container">
+		<h1 align="center">영화 List</h1>
+		<!-- 관리자 권한 -->
+		<span>
+			<button type="button" class="btn btn-info" onclick="InsertMovie();">추가</button>
+			<button type="button" class="btn btn-info" onclick="UpdateMovie();">수정</button>
+			<button type="button" class="btn btn-info" onclick="DeleteMovie();">삭제</button>
+		</span>
+		<!-- 관리자 권한 -->
+		<hr>
+		<div class="container">
+			<div class="row">
+				<!-- movie -->
+				<!-- movie -->
+				<%for(Movie b : mlist){ %>
+				<div class="col-4 float-left movie-thumb-list">
+					<div class="card">
+						<%-- <input type="hidden" value="<%=b.getMcode() %>"/> --%>
+						<%for(Attachment at : mplist){ %>
+							<%if(b.getMcode().equals(at.getmCode())){ %>
+								<img src="<%=request.getContextPath()%>/resources/MovieImg_upload/<%=at.getChangeName()%>" alt="" class="card-img-top" />
+							<%} %>
+						<%} %>
+						<div class="card-body">
+							<h5 class="card-title"><%=b.getMtitle() %></h5>
+							<p class="card-text">
+								<!-- table-area -->
+							<table class="table table-borderless table-responsive">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">감독</th>
+										<th scope="col">배우</th>
+										<th scope="col">평점</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td class="text">
+											<span data-toggle="tooltip"data-placement="bottom" title="<%=b.getmDirector() %>"><%=b.getmDirector() %></span></td>
+											<%
+												actor=b.getmActor().split(",");
+											%>
+										<td class="text">
+											<span data-toggle="tooltip"data-placement="bottom" title="<%=b.getmActor() %>"><%=b.getmActor() %></span></td>
+										<td>0.00</td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- table-area-end  -->
+							</p>
+							<button id="detail_btn" class="btn btn-info" type="button" onclick="location.href='<%=request.getContextPath() %>/detail.mo?mcode=<%=b.getMcode()%>'">자세히 보기</button>
+						</div>
+						
+					</div>
+				</div>
+				<%} %>
+				<!-- movie end -->
+			</div>
+		</div>
+	</div>
+
+	<script>
+		$(function() {
+			$('[data-toggle="tooltip"]').tooltip()
+			/* 영화 추가 삭제 수정  */
+			
+		});
+		function InsertMovie() {
+			//console.log("실행 확인");
+			location.href="<%=request.getContextPath()%>/views/movie/MovieInsertForm.jsp"; 
+		};
+		
+	</script>
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  
+
 	<!-- footbar  -->
-	<%@include file ="../common/footer.jsp" %>
+	<%@include file="../common/footer.jsp"%>
 	<!-- footbar End  -->
+	
 
 </body>
 </html>

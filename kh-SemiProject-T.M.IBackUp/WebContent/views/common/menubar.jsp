@@ -218,7 +218,7 @@
                     <!-- Logo
                     ============================================= -->
                     <div id="logo">
-                        <a href="index.html" class="standard-logo" data-dark-logo="../../resources/images/logo/logo-dark.png"><img src="../../resources/images/logo1.png"width="30%" alt="Chocolat Logo"></a>
+                        <a href="<%= request.getContextPath() %>/views/common/MainHome.jsp" class="standard-logo" data-dark-logo="<%= request.getContextPath() %>resources/images/logo1.png"><img src="<%= request.getContextPath() %>/resources/images/logo1.png"width="30%" alt="Chocolat Logo"></a>
                     </div><!-- #logo end -->
 
                     <!-- Primary Navigation
@@ -239,7 +239,7 @@
                                         <ul>
                                             <li><a href="index.html"><div>CGV</div></a></li>
                                             <li><a href="index.html"><div>메가박스</div></a></li>
-                                            <li><a href="index.html"><div>롯데시네마</div></a></li>
+                                            <li><a onclick="goSnacklt();"><div>롯데시네마</div></a></li>
                                         </ul>
                                     </li>                                                                      
                                 </ul>
@@ -287,6 +287,12 @@
                 </div>
 
           </div>
+
+	<script>
+	   function goSnacklt(){
+  			location.href="<%=request.getContextPath()%>/SnackList.sn";
+  		}
+	</script>
          
         </header><!-- #header end -->
 

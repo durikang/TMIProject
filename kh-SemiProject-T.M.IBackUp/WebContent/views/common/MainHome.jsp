@@ -5,11 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="description" content="Bootstrap 3 Website Template" />
+<meta name="description" content="Bootstrap 3 Website Template" />
 
     <!-- Stylesheets
     ============================================= -->
-	<link rel="icon" type="image/png" sizes="16x16" href="W../../resources/images/favicon/favicon-16x16.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../resources/images/favicon/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../../resources/images/favicon/favicon-32x32.png">    
 	<link href="http://fonts.googleapis.com/css?family=PT+Sans:300,400,500,600,700" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../../resources/css/bootstrap.css" type="text/css" />
@@ -41,6 +41,7 @@
     <!-- Document Title
     ============================================= -->
 	<title>Home | Chocolat</title>
+	
 
     <style>
 
@@ -68,6 +69,8 @@
 		.tparrows.preview2 .tp-arr-titleholder {
 			text-transform: uppercase;
 			font-weight:bold;
+			
+
 		}
         .infodetail{
             font-size: 10px;
@@ -436,10 +439,10 @@
                             </li>
                             <li><a href="#"><div>영화</div></a>
                                 <ul>
-                                    <li><a href="#"><div>3사 실시간 영화차트</div></a></li>
-                                    <li><a href="#"><div>현재 상영 영화정보</div></a>
+                                    <li><a href="#"><div >3사 실시간 영화차트</div></a></li>
+                                    <li><a onclick="goPrMovie();"><div>현재 상영 영화정보</div></a>
                                     <li><a href="#"><div>상영예정작</div></a></li>     
-                                    <li><a href=""><div>후기</div></a></li>                              
+                                    <li><a onclick="goReview();"><div>후기</div></a></li>                              
                                     <li><a href="#"><div>보고싶어★(보류)</div></a></li>
                                 </ul>
                             </li>
@@ -461,7 +464,7 @@
                                 <ul>
                                 	<li><a href="events-list.html"><div>CGV</div></a></li>
                                 	<li><a href="events-list-parallax.html"><div>메가박스</div></a></li>
-                                    <li><a href="events-single.html"><div>롯데시네마</div></a></li>
+                                    <li><a onclick="goSnacklt();"><div>롯데시네마</div></a></li>
                                 </ul>                            
                             </li>                            
                             <li><a href="#"><div>고객센터</div></a>
@@ -477,13 +480,26 @@
                 </div>
 
           </div>
+          <script>
+          
+          function goSnacklt(){
+  			location.href="<%=request.getContextPath()%>/SnackList.sn";
+  		}
+          function goPrMovie(){
+        	  location.href="<%=request.getContextPath()%>/list.mo";
+          }
+          function goReview() {
+        	  location.href="<%=request.getContextPath()%>/list.re";
+          }
+          
+          </script>
 
         </header><!-- #header end -->
 
         <!-- Content
-        ============================================= -->
+  		============================================= -->
         <section id="content">
-
+			
             <div class="content-wrap">
                 <img id="mSelect" src="../../resources/images/poster/h3_movie_selection.gif" alt="">
                   <div class="container clearfix">
@@ -521,7 +537,7 @@
 
                     <div class="col_half col_last tright">
                         <div class="copyrights-menu copyright-links fright clearfix" >
-                            <a href="#">회사소개</a> <a href="#">채용정보</a> <a href="#">광고/프로모션문의</a> <a href="#">이용약관</a> <a href="#">개인정보처리방침</a> <a href="#">사이트맵</a>
+                            <a href="#">회사소개</a> <a href="#">채용정보</a> <a href="#">광고/프로모션문의</a> <a href="#">이용약관</a> <a href="#">개인정보처리방침</a>
                         </div>
                     </div>   
                 </div>

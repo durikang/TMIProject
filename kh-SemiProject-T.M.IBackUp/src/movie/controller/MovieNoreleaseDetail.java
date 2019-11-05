@@ -31,7 +31,7 @@ public class MovieNoreleaseDetail extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int mCode=Integer.parseInt(request.getParameter("mCode"));
+		String mCode=request.getParameter("mCode");
 		
 		Movie m = new MovieService().selectMovie(mCode);
 		

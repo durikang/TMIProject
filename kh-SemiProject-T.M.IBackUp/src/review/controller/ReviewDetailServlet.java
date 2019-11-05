@@ -1,12 +1,18 @@
 package review.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import review.model.service.ReviewService;
+import review.model.vo.Reply;
+import review.model.vo.Review;
 
 
 
@@ -29,7 +35,13 @@ public class ReviewDetailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String rnum = request.getParameter("rnum");
+		Review ro = new ReviewService().selectReview(rnum);
+		ArrayList<Reply> rlist = new ReviewService().selectReplyList(rnum);
+		RequestDispatcher view = request.getRequestDispatcher("views/review/reviewDetail.jsp");
+		request.setAttribute("review", ro);
+		request.setAttribute("rlist", rlist);
+		view.forward(request,response);
 	}
 
 	/**

@@ -13,7 +13,7 @@
     
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link href="<%=request.getContextPath() %>/resources/css/MovieListViewForm.css" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/resources/css/MovieChartListViewForm.css" rel="stylesheet">
   	
 <style>
 
@@ -23,7 +23,6 @@
 <header class="navbar">
 	<%@include file ="../common/menubar.jsp" %>
 </header>
-
 <div class="container">
 <!-- movie - tab-list  -->
     <ul class="nav nav-tabs">
@@ -41,8 +40,8 @@
 
     <br>
     <div class="tab-content">
+         <!-- qwe 영역 -->
         <div class="tab-pane fade show active" id="qwe">
-            <!-- qwe 영역 -->
             <div class="row movie-list" >
                 <div class="col-8">
                 <!-- 영화 리스트 -->
@@ -69,8 +68,12 @@
                    
                 </div>
                 <hr>
-                <!-- 영화 리스트 end -->
+                
+                <!-- next movie area -->
+                       
+
                 </div>
+                <!-- 영화 리스트 end -->
                 <div class="col-4 float-right">
                 <h4 align="center">연령별 예매 순위</h4>
                 <!-- movie kind -rank - tab - list  -->
@@ -88,7 +91,8 @@
                         <a class="nav-link" data-toggle="tab" href="#50s">50대</a>
                     </li>
                 </ul>
-                <!-- tab-20,30,40,50대  -->
+
+                <!-- tab-20,30,40,50대  choice tab end  -->
                    
                     <div class="tab-content">
                         <!-- 20대 탭 -->
@@ -110,12 +114,12 @@
                                             <div class="card">
                                                 <div class="row no-gutters">
                                                 <div class="col-4 mpost">
-                                                    <img src="<%=imgPath %>/movie/TheTerminator2.png" alt="" class="card-img small-card-img" />
+                                                    <img src="images/tower1.PNG" alt="" class="card-img small-card-img" />
                                                 </div>
                                                 <div class="col-8">
                                                     <div class="card-body small-card-body">
                                                         <!-- 예매율  -->
-                                                        <div class="pie-chart pie-chart1"><span class="Ticketing">터미네이터 : 25%</span></div>
+                                                        <canvas id="myChart1"></canvas>
                                                         <!-- 예매율 end -->
                                                     </div>
                                                 </div>
@@ -140,7 +144,7 @@
                                             <div class="card">
                                                 <div class="row no-gutters">
                                                 <div class="col-4 mpost">
-                                                    <img src="<%=imgPath %>/movie/jokerPoster.png" alt="" class="card-img small-card-img" />
+                                                    <img src="images/tower1.PNG" alt="" class="card-img small-card-img" />
                                                 </div>
                                                 <div class="col-8">
                                                     <div class="card-body small-card-body">
@@ -171,19 +175,78 @@
                         
                     </div>
                 </div>
-            </div>
-            
-            <!-- qwe영역 끝 -->
-            <!-- aside -->
-          
+                </div>         
+            </div>     
+        </div>   
+        <!-- qwe영역 끝 -->
+        
+        <!-- asd 영역 시작 -->
+        <div class="tab-pane fade" id="asd">
+        </div><!--asd 영역 끝-->
+
+        <!-- zxc 영역 시작 -->
+        <div class="tab-pane fade" id="zxc">
+        </div>
+        <!-- zxc영역 끝 -->
+
+    </div>
+<hr>
+<!-- Prequel -->
+<div class="container">
+        <h4 align="center">프리퀄</h4><br>
+    <div class="row">
+        <div class="col-4">
+            <p>Card</p>
+            <div class="card">
+                <div class="card-header">
+                My Card
+                </div>
+                    <!-- <img src="images/city1.png" alt="" class="card-img"/> -->
+                    <iframe class="card-img" src="https://www.youtube.com/embed/x60mB0zXZ38" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="card-body">
+                <h5 class="card-title">Lorem</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas sed sem ut malesuada.</p>
+                <a href="#" class="btn btn-primary">More</a>
+                </div>
+            </div>    
+        </div>
+        <div class="col-4">
+            <p>Card</p>
+            <div class="card">
+                <div class="card-header">
+                My Card
+                </div>
+                    <!-- <img src="images/city1.png" alt="" /> -->
+                    <iframe class="card-img" src="https://www.youtube.com/embed/sXjwpMDrMnY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="card-body">
+                <h5 class="card-title">Lorem</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas sed sem ut malesuada.</p>
+                <a href="#" class="btn btn-primary">More</a>
+                </div>
+            </div>    
+        </div>
+        <div class="col-4">
+            <p>Card</p>
+            <div class="card">
+                <div class="card-header">
+                My Card
+                </div>
+                    <!-- <img src="images/city1.png" alt="" /> -->
+                    <iframe class="card-img" src="https://www.youtube.com/embed/0uC2FaZ4h1I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="card-body">
+                <h5 class="card-title">Lorem</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas sed sem ut malesuada.</p>
+                <a href="#" class="btn btn-primary">More</a>
+                </div>
+            </div>    
         </div>
     </div>
 </div>
-</div>
+
 <hr>
-
-
+<!-- Prequel end -->
 <!-- 검색창 만들어 주기 / 기능 없이 -->
+
 <div class="searchArea">
     <select id="searchCondition" name="searchCondition">
         <option>------</option>
@@ -195,6 +258,10 @@
     <button type="submit">검색하기</button>
 </div>
 
+</div>
+
+
+
 <script>
     $(function(){
         $(".thumb-list").click(function(){
@@ -202,65 +269,33 @@
             location.href="<%= request.getContextPath()%>/detail.mo?mCode=" + mCode;
         });
     });
+      //원형 그래프
+      data = { 
+          datasets: [
+            { 
+              backgroundColor: ['red','blue'],
+              data: [1, 1]
+            }
+           ],
+            // 라벨의 이름이 툴팁처럼 마우스가 근처에 오면 나타남 
+            labels: ['여자','남자']
+        }; 
+            // 가운데 구멍이 없는 파이형 차트 
+        var ctx1 = document.getElementById("myChart1"); 
+        var myPieChart = new Chart(ctx1, 
+            { 
+            type: 'pie',
+            data: data,
+            options: {
+                
+            }
+            }
+        );
 
-    // 그래프 js
-    $(window).ready(function(n){
-    var i=1;
-    func1 = setInterval(function(){
-        if(i<n+1){
-            color1(i);
-            i++;
-        } else if(i<101){
-            color2(i);
-            i++;
-        } else {
-            clearInterval(func1);
-        }
 
-    },10);
-});
-
-
-
-function color1(i){
-    $(".pie-chart1").css({
-        "background":"conic-gradient(#8b22ff 0% "+i+"%, #ffffff "+i+"% 100%)"
-    });
-    
-}
-// function color2(i,next){
-//     $(".pie-chart1").css({
-//         "background":"conic-gradient(#8b22ff 0% "+next+"%, #ffc33b "+next+"% "+i+"%, #ffc33b "+i+"% 100%)"
-//     });
-// }
- function color2(i,nextP){
-    // console.log(nextP);
-    // console.log(i);
-     $(".pie-chart1").css({
-         "background":"conic-gradient(#8b22ff 0%" +nextP+"% #ffc33b" +nextP+"% "+i+"%, #ffffff "+i+"% 100%)"
-         });
-     
- }
-function replay(p){
-
-    i=1;
-    nextP=0;
-    func1 = setInterval(function(){
-        if(i<p+1){
-            color1(i);
-            i++;
-            nextP=p+1;
-        } else if(i<101){
-            color2(i,nextP);
-            i++;
-            nextP++;
-        } else {
-            clearInterval(func1);
-        }
-},10);
-}
-    // 그래프 end
 </script>
+
+
 
 
 	<%@include file="../common/footer.jsp" %>

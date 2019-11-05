@@ -1,23 +1,39 @@
 package joinPage.model.service;
 
-import static common.JDBCTemplate.close;
+import static common.JDBCTemplate.*;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
+import joinPage.model.dao.JoinDao;
 import joinPage.model.vo.Join;
 
 public class JoinService {
 	
 	// 1. 로그인용 서비스
-	public Join loginMember() {
-		return null;
+	public Join loginMember(String userId, String userPw) {
+		Connection conn = getConnection();
+		
+		Join loginUser = new JoinDao().loginMember(conn, userId, userPw);
+		
+		close(conn);
+				
+		return loginUser;
 	}
+	
 	// 2. 회원가입용 서비스
-	public int insertMember() {
-		return 0;
+	public int insertMember(Join j) {
+		Connection conn = getConnection();
+		
+		int result = new JoinDao().insertMember(conn, j);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
 	}
 	// 3. 회원찾기용 서비스
 	public Join searchMember() {

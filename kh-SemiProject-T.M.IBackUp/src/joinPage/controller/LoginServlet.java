@@ -1,11 +1,17 @@
 package joinPage.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import joinPage.model.service.JoinService;
+import joinPage.model.vo.Join;
 
 /**
  * Servlet implementation class LoginServlet
@@ -26,8 +32,28 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("UTF-8");
+		
+		String userId = request.getParameter("userId");
+		String userPw = request.getParameter("userPw");
+		System.out.println(userId);
+		System.out.println(userPw);
+		Join loginUser = new JoinService().loginMember(userId, userPw);
+		System.out.println(loginUser);
+		response.setContentType("text/html; charset=utf-8");
+		
+		if(loginUser != null) {
+			HttpSession session = request.getSession();
+			
+			session.setAttribute("loginUser", loginUser);
+			
+			response.sendRedirect(request.getContextPath()+"/views/common/MainHome.jsp");
+		} else {
+//			request.setAttribute("msg", "로그인 실패");
+//
+//			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
+//			view.forward(request, response);
+		}
 	}
 
 	/**

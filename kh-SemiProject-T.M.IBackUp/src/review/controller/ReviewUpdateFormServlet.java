@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import review.model.service.ReviewService;
+import review.model.vo.Review;
+
 /**
  * Servlet implementation class NoticeUpdateFormServlet
  */
@@ -26,7 +29,10 @@ public class ReviewUpdateFormServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		String rnum = request.getParameter("rnum");
+		
+		// 조회수 증가 없이 요청
+		Review review = new ReviewService().selectBoardNoCnt(rnum);
 		
 	}
 

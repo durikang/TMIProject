@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import review.model.service.ReviewService;
+
 
 /**
  * Servlet implementation class NoticeDeleteServlet
@@ -28,7 +30,14 @@ public class ReviewDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		String bid = request.getParameter("bid");
+		String bnum = request.getParameter("bnum");
+		int result = 0;
+		result = new ReviewService().deleteReview(bid);
+		if(result != 0) {
+			response.sendRedirect("insert.re");
+		}else {
+		}
 	}
 
 	/**
