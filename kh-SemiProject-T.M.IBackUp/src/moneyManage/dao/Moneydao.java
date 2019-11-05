@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Properties;
 
+import moneyManage.model.mrList;
 import moneyManage.model.paydate;
 
 public class Moneydao {
@@ -75,6 +76,31 @@ public class Moneydao {
 		}
 
 		return array;
+	}
+
+	public ArrayList<mrList> moviecategory(Connection conn) {
+		ArrayList<mrList> list = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("moviecategory");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			list = new ArrayList<mrList>();
+			if(rset.next()) {
+				list.add(new mrList(
+						rset.getInt(1),
+						rset.getString(2),
+						rset.getString(3)));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
 	}
 
 }

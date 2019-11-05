@@ -4,6 +4,7 @@ import static common.JDBCTemplate.*;
 import java.sql.Connection;
 import java.util.ArrayList;
 import moneyManage.dao.Moneydao;
+import moneyManage.model.mrList;
 import moneyManage.model.paydate;
 
 public class MoneyService {
@@ -15,6 +16,14 @@ public class MoneyService {
 		ArrayList<paydate> payment = mdo.paycategory(conn);
 		close(conn);
 		return payment;
+	}
+
+	public ArrayList<mrList> moviecategory() {
+		Connection conn = getConnection();
+		Moneydao mdo = new Moneydao();
+		ArrayList<mrList> mrl = mdo.moviecategory(conn);
+		close(conn);
+		return mrl;
 	}
 
 }

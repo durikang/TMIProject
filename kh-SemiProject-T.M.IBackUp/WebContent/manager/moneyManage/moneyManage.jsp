@@ -18,6 +18,7 @@
 			d = d + s.getMoney();
 		}
 	}
+	ArrayList<moviecate> mlist = (ArrayList<moviecate>)request.getAttribute("mc");
 %>
 <!DOCTYPE html>
 <html dir="ltr" lang="ko">
@@ -82,10 +83,9 @@
       data3.addColumn('string', 'Topping');
       data3.addColumn('number', 'Slices');
       data3.addRows([
-        ['조커', 4],
-        ['말레피센트2', 1],
-        ['람보:라스트워', 2],
-        ['터미네이터2:3D', 1],
+    <%  for (moviecate m : mlist) { %>
+    	['<%= m.getMoName()%>',<%= m.getNum()%>],
+    	 <%}%>
         ['악악악', 2]
       ]);
 

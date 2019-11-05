@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import moneyManage.model.mrList;
 import moneyManage.model.paydate;
 import moneyManage.service.MoneyService;
 
@@ -36,8 +37,10 @@ public class moneyMain extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MoneyService mService = new MoneyService();
 		ArrayList<paydate> pd = mService.paycategory();
+		ArrayList<mrList> ml = mService.moviecategory();
 		RequestDispatcher view = request.getRequestDispatcher("manager/moneyManage/moneyManage.jsp");
 		request.setAttribute("pd", pd);
+		request.setAttribute("ml", ml);
 		view.forward(request,response);
 	}
 
